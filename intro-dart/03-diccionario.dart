@@ -12,7 +12,7 @@ void main() {
     2: 'Cajero',
   };
 
-  print(persona);
+  print(persona['nombre']);
 
   persona['nombre'] = 'enrique';
   persona['direccion'] = "UNAH-VS";
@@ -26,5 +26,15 @@ void main() {
     'es_mayor': false,
   });
 
-  print(persona);
+  // se puede hacer una copia
+  final copia = {...persona};
+
+  // print(persona);
+
+  persona.clear(); //limpiar el Map
+
+  persona.entries.forEach((element) {
+    print(element.key);
+    print(element.value);
+  });
 }
