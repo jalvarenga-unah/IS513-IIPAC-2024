@@ -15,6 +15,7 @@ class Mascota {
   //   this._edad = edad;
   // }
 
+// tradicional
   Mascota({
     required this.nombre,
     required this.raza,
@@ -23,11 +24,13 @@ class Mascota {
 
   //* constructor factory
   factory Mascota.fromMap(Map<String, dynamic> map) {
+    // requisito: es que debe existir previamente un construcor
+    // el cual pueda utilizar para devolver dicha instancia
     return Mascota(nombre: map['nombre'], raza: map['raza']);
   }
 
   //* constructores con nombre
-  Mascota.soloNombre({required this.nombre}); // ?????
+  Mascota.soloNombre({required this.nombre});
   Mascota.conEdad(this._edad);
 
 //sobreescribir el metodo
