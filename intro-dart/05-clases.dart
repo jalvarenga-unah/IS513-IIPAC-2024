@@ -11,6 +11,8 @@ void main() {
 
   final mascota4 = Mascota.fromMap(datos);
 
+  // final mascota5 = Mascota.posicional();
+
   print(mascota4.toString());
 
   // mascota1.setEdad(2);

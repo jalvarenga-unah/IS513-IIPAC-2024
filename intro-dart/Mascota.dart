@@ -3,8 +3,8 @@ class Mascota {
 
   // "late" le indica a clase, que la propiedad, tendrá un valor en el futuro
   // late String nombre;
-  late String nombre;
-  late String raza;
+  late String? nombre;
+  late String? raza;
   int _edad = 0; // Privada
 
   //constructor
@@ -31,7 +31,12 @@ class Mascota {
 
   //* constructores con nombre
   Mascota.soloNombre({required this.nombre});
+
   Mascota.conEdad(this._edad);
+
+// los "[]", convierten los argumentos posicionales en "opcionales"
+// hay que permitir el valor de null en ellos.
+  Mascota.posicional([this.nombre, this.raza]);
 
 //sobreescribir el metodo
   @override
