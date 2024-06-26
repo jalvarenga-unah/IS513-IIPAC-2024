@@ -7,9 +7,18 @@ void main() {
 // 1. StatefullWidget (con estado)
 // 2. StatelessWidget (sin estado)
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int contador = 10;
+
   @override
   Widget build(BuildContext context) {
+    final estilo = TextStyle(fontSize: 40, color: Colors.indigo);
+
     return MaterialApp(
       title: 'Mi primer app',
       debugShowCheckedModeBanner: false,
@@ -28,16 +37,20 @@ class MyApp extends StatelessWidget {
           child: Container(
             // color: Colors.red,
             width: MediaQuery.of(context).size.width,
-            child: const Column(
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('oli'),
-                Text('oli'),
-                Text('Hizo tantas veces clic'),
                 Text(
-                  '1',
+                  'Hizo tantas veces clic',
+                  style: estilo.copyWith(
+                      fontSize: contador.toDouble(),
+                      fontWeight: FontWeight.w300),
+                ),
+                Text(
+                  '$contador clics',
+                  style: estilo,
                 ),
               ],
             ),
@@ -47,7 +60,12 @@ class MyApp extends StatelessWidget {
         //     FloatingActionButtonLocation.miniCenterTop,
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            print('oliii');
+            // if (contador > 14) return;
+
+            contador++;
+
+            // notifica al widget que sus propiedades cambiaron
+            setState(() {});
           },
           child: Icon(
             Icons.plus_one,
