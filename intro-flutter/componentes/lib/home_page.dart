@@ -17,7 +17,12 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('listas');
+                Navigator.of(context).pushNamed('listas', arguments: {
+                  'usuario': 'jalvarenga',
+                  'rol': 'profesor',
+                  'anio': 2024
+                });
+                // Navigator.pushNamed(context, 'listas');
               },
               child: const Text('Listas'),
             ),

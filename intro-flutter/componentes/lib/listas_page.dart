@@ -5,9 +5,20 @@ class ListasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usuario = ModalRoute.of(context)!.settings.arguments as Map;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Listas'),
+        title: Text('Listas: ${usuario['usuario']}'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop(); // destruye la ultima navegacion
+            Navigator.of(context).pop(); // destruye la ultima navegacion
+          },
+          child: Text('Vovler'),
+        ),
       ),
     );
   }

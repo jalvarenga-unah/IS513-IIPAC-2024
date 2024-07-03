@@ -13,10 +13,32 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Componentes',
       // home: const HomePage(),
-      initialRoute: 'home',
+      initialRoute: 'home', // debe ser una ruta previamente definida
       routes: {
         'home': (context) => const HomePage(),
         'listas': (context) => const ListasPage()
+      },
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            appBar: AppBar(),
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.error,
+                    size: 100,
+                  ),
+                  Text(
+                    'La ruta " ${settings.name} " no existe',
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
       },
     );
   }
