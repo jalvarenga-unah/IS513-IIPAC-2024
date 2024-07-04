@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home', // debe ser una ruta previamente definida
       routes: {
         'home': (context) => const HomePage(),
-        'listas': (context) => const ListasPage()
+        'listas': (context) => ListasPage()
       },
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
@@ -26,13 +26,14 @@ class MyApp extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.error,
                     size: 100,
                   ),
                   Text(
                     'La ruta " ${settings.name} " no existe',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 30, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
