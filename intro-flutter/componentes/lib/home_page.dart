@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed('imagenes'),
               child: const Text('Imagenes'),
             ),
             const SizedBox(height: 20),

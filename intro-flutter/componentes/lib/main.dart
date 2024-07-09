@@ -1,4 +1,5 @@
 import 'package:componentes/home_page.dart';
+import 'package:componentes/imagenes_page.dart';
 import 'package:componentes/listas_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,11 @@ class MyApp extends StatelessWidget {
       initialRoute: 'home', // debe ser una ruta previamente definida
       routes: {
         'home': (context) => const HomePage(),
-        'listas': (context) => ListasPage()
+        'listas': (context) => ListasPage(),
+        'imagenes': (context) => const ImagenesPage(),
+        'inputs': (context) => ListasPage(),
+        'menus': (context) => ListasPage(),
+        'peticiones': (context) => ListasPage(),
       },
       onGenerateRoute: (settings) {
         return MaterialPageRoute(
