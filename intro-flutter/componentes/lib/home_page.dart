@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.http),
-            )
+            ),
           ],
         ),
       ),
