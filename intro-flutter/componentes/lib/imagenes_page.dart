@@ -17,9 +17,16 @@ class ImagenesPage extends StatelessWidget {
             image: AssetImage('assets/images/logo-is.jpg'),
             width: 200,
             fit: BoxFit.cover,
-          )
+          ),
 
-          //imagenes de internet
+          SizedBox(height: 20),
+
+          Image.asset(
+            'assets/images/logo-is.jpg',
+            width: 100,
+          ),
+
+          //TODO: implementar las imagenes desde URL//imagenes de internet
         ],
       ),
     );

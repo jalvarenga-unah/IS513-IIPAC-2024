@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed('inputs'),
               child: const Text('Inputs'),
             ),
             const SizedBox(height: 20),
