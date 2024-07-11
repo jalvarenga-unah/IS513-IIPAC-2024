@@ -1,7 +1,17 @@
+import 'package:componentes/widgets/custom_form_input.dart';
+import 'package:componentes/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
 
 class InputsPage extends StatelessWidget {
-  const InputsPage({super.key});
+  InputsPage({super.key});
+
+  final nombreController = TextEditingController();
+  final correoController = TextEditingController();
+  final telefonoController = TextEditingController();
+  final contraseniaController = TextEditingController();
+
+  //el controlador del Form
+  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -10,52 +20,53 @@ class InputsPage extends StatelessWidget {
         title: Text('Inputs'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            CustomInput(
-              label: 'Nombre',
-            ),
-            CustomInput(
-              label: 'Correo',
-            ),
-            CustomInput(
-              label: 'Telefono',
-            ),
-            CustomInput(
-              label: 'Contraseña',
-            ),
-          ],
+        padding: const EdgeInsets.all(16),
+        child: Form(
+          key: formkey,
+          child: Column(
+            children: [
+              CustomFormInput(
+                label: 'Nombre',
+                controller: nombreController,
+                validator: (valor) {
+                  if (valor == null || valor.isEmpty) {
+                    return 'El nombre es obligatorio';
+                  }
+                  return null;
+                },
+              ),
+              CustomFormInput(
+                controller: correoController,
+                label: 'Correo',
+              ),
+              CustomFormInput(
+                controller: telefonoController,
+                label: 'Telefono',
+              ),
+              CustomFormInput(
+                controller: contraseniaController,
+                label: 'Contraseña',
+              ),
+            ],
+          ),
         ),
       ),
-    );
-  }
-}
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.save),
+        onPressed: () {
+          if (!formkey.currentState!.validate()) return;
 
-class CustomInput extends StatelessWidget {
-  const CustomInput({
-    super.key,
-    required this.label,
-  });
+          final datos = {
+            'nombre': nombreController.text,
+            'correo': correoController.text,
+            'telefono': telefonoController.text,
+            'contrasenia': contraseniaController.text,
+          };
 
-  final String label;
+          print(datos);
 
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      // controller: ,
-      keyboardType: TextInputType.text,
-      style: TextStyle(color: Colors.teal),
-      maxLength: 20,
-      maxLines: 1,
-      decoration: InputDecoration(
-        hintText: 'Ingrese su nombre',
-        label: Text(label),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-        // suffix: Icon(Icons.person),
-        errorText: null, //'El nombre es obligatorio',
-        suffixIcon: Icon(Icons.remove_red_eye),
-        prefixIcon: Icon(Icons.person),
+          // mandar a guardar
+        },
       ),
     );
   }
