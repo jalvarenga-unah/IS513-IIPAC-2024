@@ -32,6 +32,11 @@ class InputsPage extends StatelessWidget {
                   if (valor == null || valor.isEmpty) {
                     return 'El nombre es obligatorio';
                   }
+
+                  if (valor.length < 3) {
+                    return 'El nombre debe tener al menos 3 caracteres';
+                  }
+
                   return null;
                 },
               ),
