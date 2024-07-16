@@ -12,69 +12,78 @@ class HomePage extends StatelessWidget {
         title: const Text('Componentes'),
       ),
       drawer: Drawer(
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DrawerHeader(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.9,
+              child: ListView(
                 children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: NetworkImage(
-                        'https://avatars.githubusercontent.com/u/11632827?v=4'),
+                  DrawerHeader(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundImage: NetworkImage(
+                              'https://avatars.githubusercontent.com/u/11632827?v=4'),
+                        ),
+                        Text('Juan Alvarenga'),
+                      ],
+                    ),
                   ),
-                  Text('Juan Alvarenga'),
+                  ListTile(
+                    title: Text('Inicio'),
+                    leading: Icon(Icons.home),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    onTap: () => Navigator.of(context).pushNamed('home'),
+                  ),
+                  ListTile(
+                    title: Text('Listas'),
+                    leading: Icon(Icons.list),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    onTap: () {},
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(
+                      'Opciones de menu',
+                      style: TextStyle(
+                        color: Colors.indigo,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text('Menus'),
+                    leading: Icon(Icons.menu),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    onTap: () {
+                      Navigator.of(context).pop(); // el drawer
+              
+                      Navigator.of(context).pushNamed('menus');
+                    },
+                  ),
+                  
                 ],
               ),
             ),
-            ListTile(
-              title: Text('Inicio'),
-              leading: Icon(Icons.home),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-              onTap: () => Navigator.of(context).pushNamed('home'),
-            ),
-            ListTile(
-              title: Text('Listas'),
-              leading: Icon(Icons.list),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-              onTap: () {},
-            ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                'Opciones de menu',
-                style: TextStyle(
-                  color: Colors.indigo,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Menus'),
-              leading: Icon(Icons.menu),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-              onTap: () {
-                Navigator.of(context).pop(); // el drawer
-
-                Navigator.of(context).pushNamed('menus');
-              },
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                'Salir',
-                style: TextStyle(
-                  color: Colors.indigo,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Cerrar sesión'),
-              leading: Icon(Icons.exit_to_app),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-              onTap: () {},
-            ),
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Text(
+                      'Salir',
+                      style: TextStyle(
+                        color: Colors.indigo,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text('Cerrar sesión'),
+                    leading: Icon(Icons.exit_to_app),
+                    trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    onTap: () {},
+                  ),
           ],
         ),
       ),
