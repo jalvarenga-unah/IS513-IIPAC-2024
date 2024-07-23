@@ -14,13 +14,13 @@ class ImagenesPage extends StatelessWidget {
           children: [
             //imagenes locales
 
-            Image(
+            const Image(
               image: AssetImage('assets/images/logo-is.jpg'),
               width: 200,
               fit: BoxFit.cover,
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             Image.asset(
               'assets/images/logo-is.jpg',

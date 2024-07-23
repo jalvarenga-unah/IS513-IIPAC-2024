@@ -1,5 +1,4 @@
 import 'package:componentes/widgets/custom_form_input.dart';
-import 'package:componentes/widgets/custom_input.dart';
 import 'package:flutter/material.dart';
 
 class InputsPage extends StatelessWidget {
@@ -17,7 +16,7 @@ class InputsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inputs'),
+        title: const Text('Inputs'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

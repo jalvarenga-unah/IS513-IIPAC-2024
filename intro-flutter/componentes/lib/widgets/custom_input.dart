@@ -29,8 +29,8 @@ class CustomInput extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
         // suffix: Icon(Icons.person),
         errorText: null, //'El nombre es obligatorio',
-        suffixIcon: Icon(Icons.remove_red_eye),
-        prefixIcon: Icon(Icons.person),
+        suffixIcon: const Icon(Icons.remove_red_eye),
+        prefixIcon: const Icon(Icons.person),
       ),
     );
   }
