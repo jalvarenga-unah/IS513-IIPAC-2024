@@ -125,7 +125,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed('peticiones'),
               icon: const Icon(Icons.http),
             ),
           ],
