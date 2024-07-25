@@ -1,5 +1,6 @@
 import 'package:componentes/models/producto.dart';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ProductosProvider {
   Future<List<Producto>> getProductos() async {
@@ -13,14 +14,21 @@ class ProductosProvider {
     try {
       final Uri url = Uri.https('fakestoreapi.com', '/products');
 
-      final response = await http.get(url);
+      final response = await http.get(url); // Response
 
       if (response.statusCode == 200) {
         // quiero obtener los datos
 
-        // ! No lo recomiendo para ustedes
-        //TODO: lo hacemos mañana
-        return productoFromJson(response.body);
+        final paredResponse = json.decode(response.body);
+
+        final datosMapeados =
+            paredResponse.map((producto) => Producto.fromJson(producto));
+
+        return List<Producto>.from(datosMapeados);
+
+        // // ! No lo recomiendo para ustedes
+        // //TODO: lo hacemos mañana
+        // return productoFromJson(response.body);
       }
 
       return [];
