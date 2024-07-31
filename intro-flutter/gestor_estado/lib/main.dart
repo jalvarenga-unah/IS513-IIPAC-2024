@@ -27,7 +27,11 @@ class HomePage extends StatelessWidget {
     super.key,
   });
 
-  final controller = ContadorController();
+  // final controller = ContadorController();
+
+  //⬇️ esto utliza el patron Singleton
+  final controller = Get.put<ContadorController>(ContadorController());
+  // final controller = Get.find<ContadorController>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +53,7 @@ class HomePage extends StatelessWidget {
                 style: const TextStyle(fontSize: 24),
               );
             }),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/detalle');
