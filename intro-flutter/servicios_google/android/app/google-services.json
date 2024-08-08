@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "432380724343",
+    "project_id": "app-servicios-is513-lj",
+    "storage_bucket": "app-servicios-is513-lj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432380724343:android:a684211c275f0b99da3272",
+        "android_client_info": {
+          "package_name": "hn.edu.unah.servicios_google"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWCp3OQRQOw36RyDwWkc2_Ys_yvhRTdP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
